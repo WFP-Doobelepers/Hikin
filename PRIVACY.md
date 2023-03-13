@@ -1,10 +1,10 @@
 # Privacy Policy
-This document entails the privacy policy and agreement that you accept when adding Kikin#2770 to a server, or as a member of such a server. This document does not supersede the [Developer Terms of Service](https://discordapp.com/developers/docs/legal).
+This document entails the privacy policy and agreement that you accept when adding Hikin#8820 to a server, or as a member of such a server. This document does not supersede the [Developer Terms of Service](https://discordapp.com/developers/docs/legal).
 
 ### Terminology
 * **Server Manager** - Anyone who has the ability to add a bot to a server or configure the bot for the server. This is usually an administrator or moderator
 * **Server Member** - Anyone who is a member of server to which one of the bots has been added
-* **Third-Party Services** - Any service that is not directly affiliated with Keqing Mains
+* **Third-Party Services** - Any service that is not directly affiliated with Wangsheng Funeral Parlor
 
 
 ## Data Collection
@@ -30,10 +30,10 @@ The following items may be collected and stored when intentionally provided by a
 
 
 ## Removal of Data
-* Manual removal of the data can be requested through email at bot@keqingmains.com or by joining the Keqing Mains Discord server http://discord.gg/keqing and submitting a Modmail.
+* Manual removal of the data can be requested by joining the Wangsheng Funeral Parlor Discord server http://discord.gg/hutao and submitting a Modmail.
 * For security reasons will we ask you to provide us with proof of ownership of the server, that you wish the data to be removed of.
 * Only a server owner may request manual removal of data and requesting it will result in the bot being removed from the server, if still present on it.
 
 
 ## Agreement
-By adding Kikin#2770 to your server or using Kikin#2770 in any way, you are consenting to the policies outlined in this document. In addition, you (the server manager) are agreeing to inform your members of the [Developer Terms of Service](https://discordapp.com/developers/docs/legal) and the contents of this document. If you, the server manager, do not agree to this document, you may remove the bot(s) from the server. If you, the server member, do not agree to this document, you may leave the server that contains the bot(s). 
+By adding Hikin#8820 to your server or using Hikin#8820 in any way, you are consenting to the policies outlined in this document. In addition, you (the server manager) are agreeing to inform your members of the [Developer Terms of Service](https://discordapp.com/developers/docs/legal) and the contents of this document. If you, the server manager, do not agree to this document, you may remove the bot(s) from the server. If you, the server member, do not agree to this document, you may leave the server that contains the bot(s). 
