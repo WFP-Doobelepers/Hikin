@@ -20,5 +20,5 @@ We reserve the right to update these terms at our own discretion, giving you a 1
 You may opt out by Removing the bot from any Server you have the rights for.
 
 ## Contact
-People may get in contact through the discord.gg/keqing 
+People may get in contact through the discord.gg/hutao
 Other ways of support may be provided but aren't guaranteed.
