@@ -18,12 +18,12 @@ export default class BotInfoCommand implements Command {
 
         const embed = new MessageEmbed()
             .setDescription('**Bot Info**')
-            .setColor('PURPLE')
+            .setColor('ORANGE')
             .setThumbnail(discordBot.client.user?.avatarURL({ size: 1024 }) ?? '')
             
             .addField('Developer', 'Paper#1932', true)
-            .addField('Owner', '[Keqing Mains](https://discord.gg/keqing)', true)
-            .addField('Links', '[Source Code](https://github.com/KQMBot/keqing-lite)\n[Privacy Policy](https://github.com/KQMBot/keqing-lite/blob/main/PRIVACY.md)\n[Terms of Service](https://github.com/KQMBot/keqing-lite/blob/main/TERMS.md)\n', true)
+            .addField('Owner', '[Wangsheng Funeral Parlor](https://discord.gg/hutao)', true)
+            .addField('Links', '[Source Code Kikin](https://github.com/KQMBot/keqing-lite)\n[Source Code Hikin](https://github.com/WFP-Doobelepers/Hikin)\n[Privacy Policy](https://github.com/WFP-Doobelepers/Hikin/blob/main/PRIVACY.md\n[Terms of Service](https://github.com/WFP-Doobelepers/Hikin/blob/main/TERMS.md)\n', true)
 
             .addField('Server Count', `${discordBot.client.guilds.cache.size}`, true)
             .addField('Latency', `${Date.now() - interaction.createdTimestamp}ms`, true)
