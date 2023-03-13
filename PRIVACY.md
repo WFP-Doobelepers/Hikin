@@ -30,7 +30,7 @@ The following items may be collected and stored when intentionally provided by a
 
 
 ## Removal of Data
-* Manual removal of the data can be requested by joining the Wangsheng Funeral Parlor Discord server http://discord.gg/hutao and submitting a Modmail.
+* Manual removal of the data can be requested by joining the [Wangsheng Funeral Parlor](http://discord.gg/hutao) Discord server and submitting a Modmail.
 * For security reasons will we ask you to provide us with proof of ownership of the server, that you wish the data to be removed of.
 * Only a server owner may request manual removal of data and requesting it will result in the bot being removed from the server, if still present on it.
 
