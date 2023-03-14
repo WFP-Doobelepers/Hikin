@@ -23,7 +23,7 @@ export default class BotInfoCommand implements Command {
             
             .addField('Developer', 'Paper#1932', true)
             .addField('Owner', '[Wangsheng Funeral Parlor](https://discord.gg/hutao)', true)
-            .addField('Links', '[Source Code Kikin](https://github.com/KQMBot/keqing-lite)\n[Source Code Hikin](https://github.com/WFP-Doobelepers/Hikin)\n[Privacy Policy](https://github.com/WFP-Doobelepers/Hikin/blob/main/PRIVACY.md\n[Terms of Service](https://github.com/WFP-Doobelepers/Hikin/blob/main/TERMS.md)\n', true)
+            .addField('Links', '[Source Code Kikin](https://github.com/KQMBot/keqing-lite)\n[Source Code Hikin](https://github.com/WFP-Doobelepers/Hikin)\n[Privacy Policy](https://github.com/WFP-Doobelepers/Hikin/blob/main/PRIVACY.md)\n[Terms of Service](https://github.com/WFP-Doobelepers/Hikin/blob/main/TERMS.md)\n', true)
 
             .addField('Server Count', `${discordBot.client.guilds.cache.size}`, true)
             .addField('Latency', `${Date.now() - interaction.createdTimestamp}ms`, true)
