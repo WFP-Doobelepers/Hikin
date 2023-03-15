@@ -77,6 +77,17 @@ export default class LiveCommand implements Command, IAutocompletableCommand {
 
         await interaction.deferReply({ ephemeral: liveCommand?.ephemeral })
         
+        if (liveCommand.interaction[0] === 'p') {
+
+            const guildConfig = discordBot.databaseManager.getGuildConfigDocument(<string> interaction.guildId)
+
+            if (!guildConfig.isPreTCAllowed || guildConfig.isPreTCAllowed != 'true') {
+
+                await interaction.editReply('**ERROR:** Pre-TC guides blocked are blocked by default.\nContant server admin to allow them.')
+                return
+            }
+        }
+
         const liveInteraction = discordBot.liveInteractionManager.resolveLiveInteraction(
             liveCommand.interaction,
             constants

@@ -23,14 +23,19 @@ export const GuildConfigMetadata: Record<keyof GuildConfig, GuildConfigMetadataK
     blacklistReply: {
         description: 'A message that should be sent out when the bot is triggered by someone with the blacklist role',
         optional: true
-    }
+    },
+
+    isPreTCAllowed: {
+        description: 'Set to true to block Pre-TC guides',
+        optional: true
+    } 
 }
 
 export interface GuildConfig {
     triggerPrefix: string
-
     blacklistRoleId?: string
     blacklistReply?: string
+    isPreTCAllowed?: string
 }
 
 export interface StickyMessage {
