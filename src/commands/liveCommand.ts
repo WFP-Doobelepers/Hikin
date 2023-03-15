@@ -81,7 +81,7 @@ export default class LiveCommand implements Command, IAutocompletableCommand {
 
             const guildConfig = discordBot.databaseManager.getGuildConfigDocument(<string> interaction.guildId)
 
-            if (!guildConfig.isPreTCAllowed || guildConfig.isPreTCAllowed != 'true') {
+            if (guildConfig.isPreTCAllowed !== 'true') {
 
                 await interaction.editReply('**ERROR:** Pre-TC guides blocked are blocked by default.\nContant server admin to allow them.')
                 return
