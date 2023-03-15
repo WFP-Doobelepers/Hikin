@@ -26,7 +26,7 @@ export const GuildConfigMetadata: Record<keyof GuildConfig, GuildConfigMetadataK
     },
 
     isPreTCAllowed: {
-        description: 'Set to true to block Pre-TC guides',
+        description: 'Set to true to allow Pre-TC guides',
         optional: true
     } 
 }
