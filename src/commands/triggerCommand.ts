@@ -14,7 +14,7 @@ import { constantsFromObject, isBotAdmin } from '../utils'
 export default class LiveInteractionCommand implements Command, IAutocompletableCommand {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {
         return new SlashCommandBuilder()
-            .setName('k')
+            .setName('h')
             .setDescription('Try to display a loaded interaction')
             .addStringOption(
                 new SlashCommandAutocompleteStringOption()

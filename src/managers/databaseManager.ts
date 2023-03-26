@@ -46,7 +46,7 @@ export interface StickyMessage {
 }
 
 export const DefaultGuildConfig: () => GuildConfig = () => ({
-    triggerPrefix: 'k!'
+    triggerPrefix: 'h!'
 })
 
 export class DatabaseManager {

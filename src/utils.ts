@@ -136,9 +136,9 @@ export function hasPermission(permissions: LiveInteractionPermissions | undefine
         return fallbackRolePermission ? member.permissions.has(fallbackRolePermission) : true
     }
 
-  /*  if (permissions.serverPerm) {
-        return member.permissions.has(permissions.serverPerm)
-    } */
+    if (permissions.serverPerm) {
+        return member.permissions.has(permissions.serverPerm as PermissionResolvable)
+    } 
 
     if (!member.roles || !member.roles.cache) {
         if (permissions.blacklist || permissions.whitelist) return false
