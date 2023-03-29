@@ -15,8 +15,12 @@ export default class ReloadCommandsCommand implements Command {
 
     async execute(interaction: CommandInteraction): Promise<void> {
 
-        if (!isBotAdmin(interaction.member as GuildMember) /* && (interaction.guildId != '1084456230833102968') */ || (interaction.member as GuildMember).roles.cache.has('1084778349542518805')) {
+        const user = interaction.member as GuildMember
+
+        if (!isBotAdmin(interaction.member as GuildMember) /* && (interaction.guildId != '1084456230833102968') */ || user.roles.cache.has('1084778349542518805')) {
             await interaction.reply('**ERROR:** Missing Permissions.')
+
+            console.log(user.roles.cache)
             return
         }
 
