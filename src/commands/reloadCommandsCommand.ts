@@ -26,7 +26,7 @@ export default class ReloadCommandsCommand implements Command {
 
         await discordBot.loadCommands()
 
-        const date =  new Date()
+        const date =  new Date(Date.now())
 
         console.log(`${date.toTimeString} Reloaded Commands by ${interaction.user.username} in ${interaction.guild?.name}`)
 
