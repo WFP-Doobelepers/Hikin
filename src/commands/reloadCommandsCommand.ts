@@ -28,11 +28,11 @@ export default class ReloadCommandsCommand implements Command {
 
         const date =  new Date(Date.now())
 
-        console.log(`${date.toTimeString} Reloaded Commands by ${interaction.user.username} in ${interaction.guild?.name}`)
+        console.log(`${date.toTimeString()} Reloaded Commands by ${interaction.user.username} in ${interaction.guild?.name}`)
 
         const embed =  new MessageEmbed()
                             .setTitle('Reloaded Commands')
-                            .setDescription(`Reloadeded commands at ${date.toDateString}`)
+                            .setDescription(`Reloadeded commands at ${date.toDateString()}`)
                             .setColor('ORANGE')
                             .setThumbnail(<string> interaction.guild?.iconURL())
                             .setFooter({
