@@ -15,14 +15,12 @@ export default class ReloadCommandsCommand implements Command {
 
     async execute(interaction: CommandInteraction): Promise<void> {
 
-        interaction.deferReply();
-
-        const User = interaction.member as GuildMember
-
-        if (!isBotAdmin(interaction.member as GuildMember) /* && (interaction.guildId != '1084456230833102968') */ && User.roles.cache.has('1084778349542518805')) {
-            await interaction.editReply('**ERROR:** Missing Permissions.')
+        if (!isBotAdmin(interaction.member as GuildMember) /* && (interaction.guildId != '1084456230833102968') */ && (interaction.member as GuildMember).roles.cache.has('1084778349542518805')) {
+            await interaction.reply('**ERROR:** Missing Permissions.')
             return
         }
+
+        interaction.deferReply()
 
         await discordBot.loadCommands()
 
@@ -32,7 +30,6 @@ export default class ReloadCommandsCommand implements Command {
 
         const embed =  new MessageEmbed()
                             .setTitle('Reloaded Commands')
-                            .setDescription(`Reloadeded commands at ${date.toDateString()}`)
                             .setColor('ORANGE')
                             .setThumbnail(<string> interaction.guild?.iconURL())
                             .setFooter({
