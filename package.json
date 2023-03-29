@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && cd ./lib && node lib/index.js"
+    "start": "tsc && cd ./lib && node index.js"
   },
   "keywords": [],
   "author": "",

@@ -44,7 +44,7 @@ export default class ServerInfoCommand implements Command {
   
         const embed = new MessageEmbed()
             .setDescription('**Server Info**')
-            .setColor('PURPLE')
+            .setColor('ORANGE')
             .setThumbnail(guild.iconURL() ?? '')
             .addField(
                 'General',
