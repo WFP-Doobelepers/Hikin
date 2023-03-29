@@ -25,11 +25,14 @@ export default class ReloadCommandsCommand implements Command {
         }
 
         await discordBot.loadCommands()
-        console.log(`${(new Date()).toTimeString} Reloaded Commands by ${interaction.user.username} in ${interaction.guild?.name}`)
+
+        const date =  new Date()
+
+        console.log(`${date.toTimeString} Reloaded Commands by ${interaction.user.username} in ${interaction.guild?.name}`)
 
         const embed =  new MessageEmbed()
                             .setTitle('Reloaded Commands')
-                            .setDescription(`Reloadeded commands at ${(new Date()).toDateString}`)
+                            .setDescription(`Reloadeded commands at ${date.toDateString}`)
                             .setColor('ORANGE')
                             .setThumbnail(<string> interaction.guild?.iconURL())
                             .setFooter({
