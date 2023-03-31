@@ -1,11 +1,11 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types'
 import { CommandInteraction, GuildMember, MessageAttachment } from 'discord.js'
-import { discordBot } from '..'
-import { DefaultGuildConfig, GuildConfig } from '../managers/databaseManager'
-import { LiveTrigger } from '../models/LiveTrigger'
-import { hasPermission, injectConstants } from '../utils'
-import { Command } from './command'
+import { discordBot } from '../..'
+import { DefaultGuildConfig, GuildConfig } from '../../managers/databaseManager'
+import { LiveTrigger } from '../../models/LiveTrigger'
+import { hasPermission, injectConstants } from '../../utils'
+import { Command } from '../global/command'
 
 export default class DumpTriggersCommand implements Command {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {

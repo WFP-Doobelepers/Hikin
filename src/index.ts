@@ -16,7 +16,7 @@ import path from 'path'
 import { hasPermission, loadYaml } from './utils'
 import { LiveConfig } from './models/LiveConfig'
 import { LiveTriggerManager } from './managers/triggerManager'
-import { IAutocompletableCommand, IExecutableCommand } from './commands/command'
+import { IAutocompletableCommand, IExecutableCommand } from './commands/global/command'
 import { ActivityTypes, MessageTypes } from 'discord.js/typings/enums'
 import { DatabaseManager } from './managers/databaseManager'
 import { StickyManager } from './managers/stickyManager'
@@ -103,7 +103,7 @@ class DiscordBotHandler {
 
             // When the client is ready, run this code (only once)
             this.client.once('ready', async () => {
-                console.log('Ready!')
+                console.log('Bot Ready!')
                 await this.loadForwarders()
             })
 
@@ -246,14 +246,20 @@ class DiscordBotHandler {
 
         this.liveTriggerManager.loadTriggers()
 
-        return this.registerCommands([
+         this.registerPublicCommands([
             ...this.liveCommandManager.getLiveCommands(),
-            ...await this.localCommandManager.getLocalCommands()
+            ...await this.localCommandManager.getLocalPublicCommands()
         ])
+
+        this.registerPrivateCommands([
+            ...await this.localCommandManager.getLocalPrivateCommands()
+        ])
+
+        return
     }
 
     async unloadCommands() {
-        return this.registerCommands([])
+        return this.registerPublicCommands([])
     }
 
     loadConstants() {
@@ -312,18 +318,36 @@ class DiscordBotHandler {
         }
     }
 
-    async registerCommands(commands: RESTPatchAPIApplicationCommandJSONBody[]) {
+    async registerPublicCommands(commands: RESTPatchAPIApplicationCommandJSONBody[]) {
         const hashSet: Record<string, RESTPatchAPIApplicationCommandJSONBody> = {}
+
+        console.log(`Registering Public Commands:   Name   (Autocomplete)`)
         for (const command of commands) {
             if (!command.name) continue
             hashSet[command.name] = command
 
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            console.log(`Registering Command: ${command.name}, AC ${command.autocomplete ?? false}`)
+            console.log(`                               ${command.name}   (${command.autocomplete ?? false})`)
         }
 
         await this.restClient.put(Routes.applicationCommands(Constants.DISCORD_CLIENT_ID), { body: Object.values(hashSet) })
+    }
+
+    async registerPrivateCommands(commands: RESTPatchAPIApplicationCommandJSONBody[]) {
+        const hashSet: Record<string, RESTPatchAPIApplicationCommandJSONBody> = {}
+
+        console.log(`Registering Public Commands:   Name   (Autocomplete)`)
+        for (const command of commands) {
+            if (!command.name) continue
+            hashSet[command.name] = command
+
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            console.log(`                               ${command.name}   (${command.autocomplete ?? false})`)
+        }
+
+        await this.restClient.put(Routes.applicationGuildCommands(Constants.DISCORD_CLIENT_ID, Constants.GUILD_ID), { body: Object.values(hashSet) })
     }
 
     async downloadAndExtractLiveCommandRepo() {

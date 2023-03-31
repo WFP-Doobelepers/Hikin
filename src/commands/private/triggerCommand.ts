@@ -1,14 +1,14 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types/v9'
 import { AutocompleteInteraction, CacheType, CommandInteraction, GuildMember } from 'discord.js'
-import { discordBot } from '..'
-import { MessageLiveInteraction } from '../models/MessageLiveInteraction'
-import { Command, IAutocompletableCommand } from './command'
+import { discordBot } from '../..'
+import { MessageLiveInteraction } from '../../models/MessageLiveInteraction'
+import { Command, IAutocompletableCommand } from '../global/command'
 import { SlashCommandAutocompleteStringOption } from './liveInteractionCommand'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { constantsFromObject, isBotAdmin } from '../utils'
+import { constantsFromObject, isBotAdmin } from '../../utils'
 
 export default class LiveInteractionCommand implements Command, IAutocompletableCommand {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {
