@@ -25,14 +25,6 @@ class _Constants {
     get LIVE_COMMANDS_REPO(): string {
         return this.fromEnvConfig('LIVE_COMMANDS_REPO')
     }
-
-    get GUILD_ID(): string {
-        return this.fromEnvConfig('GUILD_ID')
-    }
-
-    get OWNER_ID(): string {
-        return this.fromEnvConfig('OWNER_ID')
-    }
     
     get LIVE_COMMANDS_REPO_BASE_FOLDER_NAME(): string {
         return this.fromEnvConfig('LIVE_COMMANDS_REPO_BASE_FOLDER_NAME')

@@ -3,9 +3,9 @@ import {AutocompleteInteraction, CommandInteraction, MessageAttachment} from 'di
 import {Command, IAutocompletableCommand} from './command'
 import {RESTPostAPIApplicationCommandsJSONBody} from 'discord-api-types'
 import {SlashCommandBuilder} from '@discordjs/builders'
-import {SlashCommandAutocompleteStringOption} from '../private/liveInteractionCommand'
-import { discordBot } from '../..'
-import { GuildConfig, GuildConfigMetadata } from '../../managers/databaseManager'
+import {SlashCommandAutocompleteStringOption} from './liveInteractionCommand'
+import { discordBot } from '..'
+import { GuildConfig, GuildConfigMetadata } from '../managers/databaseManager'
 import { stripIndent } from 'common-tags'
 
 export default class ServerConfigCommand implements Command, IAutocompletableCommand {

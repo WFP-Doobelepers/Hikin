@@ -2,9 +2,9 @@ import { SlashCommandBooleanOption, SlashCommandBuilder, SlashCommandStringOptio
 import { APIApplicationCommandOption, APIApplicationCommandOptionChoice, ApplicationCommandOptionType, ChannelType, RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types/v9'
 
 import { AutocompleteInteraction, CacheType, CommandInteraction, MessagePayload, ApplicationCommandOptionChoice } from 'discord.js'
-import { discordBot } from '../..'
-import { MessageLiveInteraction } from '../../models/MessageLiveInteraction'
-import { Command, IAutocompletableCommand } from '../global/command'
+import { discordBot } from '..'
+import { MessageLiveInteraction } from '../models/MessageLiveInteraction'
+import { Command, IAutocompletableCommand } from './command'
 
 export class SlashCommandAutocompleteStringOption extends SlashCommandStringOption {
     override toJSON(): {

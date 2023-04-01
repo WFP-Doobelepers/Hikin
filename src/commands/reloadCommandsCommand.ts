@@ -1,9 +1,9 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types'
 import { CommandInteraction, GuildMember, MessageEmbed } from 'discord.js'
-import { discordBot } from '../..'
-import { isBotAdmin } from '../../utils'
-import { Command } from '../global/command'
+import { discordBot } from '..'
+import { isBotAdmin } from '../utils'
+import { Command } from './command'
 
 export default class ReloadCommandsCommand implements Command {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {

@@ -2,8 +2,8 @@ import { CommandInteraction, CacheType, MessageEmbed } from 'discord.js'
 import { Command } from './command'
 import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types'
 import { SlashCommandBuilder } from '@discordjs/builders'
-import { discordBot } from '../..'
-import { Constants } from '../../constants'
+import { discordBot } from '..'
+import { Constants } from '../constants'
   
 export default class BotInfoCommand implements Command {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {

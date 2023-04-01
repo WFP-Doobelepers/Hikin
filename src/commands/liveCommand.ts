@@ -1,10 +1,10 @@
 import { SlashCommandBuilder, SlashCommandStringOption } from '@discordjs/builders'
 import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types/v9'
 import { AutocompleteInteraction, CacheType, CommandInteraction, GuildMember } from 'discord.js'
-import { discordBot } from '../..'
-import { MessageLiveInteraction } from '../../models/MessageLiveInteraction'
-import { constantsFromObject, hasPermission, cleanString } from '../../utils'
-import { Command, IAutocompletableCommand } from '../global/command'
+import { discordBot } from '..'
+import { MessageLiveInteraction } from '../models/MessageLiveInteraction'
+import { constantsFromObject, hasPermission, cleanString } from '../utils'
+import { Command, IAutocompletableCommand } from './command'
 
 export default class LiveCommand implements Command, IAutocompletableCommand {
     async handleAutocomplete(interaction: AutocompleteInteraction<CacheType>): Promise<void> {
