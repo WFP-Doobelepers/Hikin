@@ -2,7 +2,7 @@
 import { REST } from '@discordjs/rest'
 import fsp from 'fs/promises'
 import AdmZip from 'adm-zip'
-import { RESTPatchAPIApplicationCommandJSONBody, Routes, APIMessage } from 'discord-api-types/v9'
+import { RESTPatchAPIApplicationCommandJSONBody, RESTPatchAPIApplicationGuildCommandJSONBody, Routes, APIMessage } from 'discord-api-types/v9'
 import { Client, ExcludeEnum, GuildMember, Intents, Message } from 'discord.js'
 import { https } from 'follow-redirects'
 import { Constants } from './constants'
@@ -16,7 +16,7 @@ import path from 'path'
 import { hasPermission, loadYaml } from './utils'
 import { LiveConfig } from './models/LiveConfig'
 import { LiveTriggerManager } from './managers/triggerManager'
-import { IAutocompletableCommand, IExecutableCommand } from './commands/command'
+import { IAutocompletableCommand, IExecutableCommand } from './commands/global/command'
 import { ActivityTypes, MessageTypes } from 'discord.js/typings/enums'
 import { DatabaseManager } from './managers/databaseManager'
 import { StickyManager } from './managers/stickyManager'
@@ -171,7 +171,8 @@ class DiscordBotHandler {
                         }
 
                         const CommandClass =
-                            this.localCommandManager.resolveLocalCommandClass(interaction.commandName) ??
+                            this.localCommandManager.resolveLocalPublicCommandClass(interaction.commandName) ??
+                            this.localCommandManager.resolveLocalPrivateCommandClass(interaction.commandName) ??
                             this.liveCommandManager.resolveLiveCommandClass(interaction.commandName)
                         if (!CommandClass) return
 
@@ -246,10 +247,17 @@ class DiscordBotHandler {
 
         this.liveTriggerManager.loadTriggers()
 
-        return this.registerCommands([
+        this.registerCommands([
             ...this.liveCommandManager.getLiveCommands(),
             ...await this.localCommandManager.getLocalCommands()
         ])
+
+        this.registerPrivateCommands([
+            ...await this.localCommandManager.getLocalPrivateCommands(),
+          //  ...await this.localCommandManager.getLocalCommands()
+        ])
+
+        return
     }
 
     async unloadCommands() {
@@ -320,10 +328,24 @@ class DiscordBotHandler {
 
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            console.log(`Registering Command: ${command.name}, AC ${command.autocomplete ?? false}`)
+            console.log(`Registering Pub Command: ${command.name}, AC ${command.autocomplete ?? false}`)
         }
 
         await this.restClient.put(Routes.applicationCommands(Constants.DISCORD_CLIENT_ID), { body: Object.values(hashSet) })
+    }
+
+    async registerPrivateCommands(commands: RESTPatchAPIApplicationGuildCommandJSONBody[]) {
+        const hashSet: Record<string, RESTPatchAPIApplicationGuildCommandJSONBody> = {}
+        for (const command of commands) {
+            if (!command.name) continue
+            hashSet[command.name] = command
+
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            console.log(`Registering Pvt Command: ${command.name}, AC ${command.autocomplete ?? false}`)
+        }
+
+        await this.restClient.put(Routes.applicationGuildCommands(Constants.DISCORD_CLIENT_ID, Constants.GUILD_ID), { body: Object.values(hashSet) })
     }
 
     async downloadAndExtractLiveCommandRepo() {
