@@ -3,13 +3,8 @@ import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types/v9'
 import { AutocompleteInteraction, CacheType, CommandInteraction, GuildMember } from 'discord.js'
 import { discordBot } from '../..'
 import { MessageLiveInteraction } from '../../models/MessageLiveInteraction'
-<<<<<<<< HEAD:src/commands/global/triggerCommand.ts
-import { Command, IAutocompletableCommand } from './command'
 import { SlashCommandAutocompleteStringOption } from '../private/liveInteractionCommand'
-========
 import { Command, IAutocompletableCommand } from '../global/command'
-import { SlashCommandAutocompleteStringOption } from './liveInteractionCommand'
->>>>>>>> parent of f0562f1 (Revert "feat: split commands to global and private;"):src/commands/private/triggerCommand.ts
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
