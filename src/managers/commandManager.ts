@@ -38,7 +38,7 @@ export class LocalCommandManager {
     }
 
     async getLocalPublicCommands(): Promise<RESTPostAPIApplicationCommandsJSONBody[]> {
-        const commandsDir = path.join(__dirname, '../commands/global')
+        const commandsDir = path.join(__dirname, '../commands/public')
         const commandFiles = await fsp.readdir(commandsDir)
         this.loadedCommands = {}
 
