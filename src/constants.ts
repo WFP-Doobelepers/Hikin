@@ -42,10 +42,6 @@ class _Constants {
         return path.join(__dirname, 'liveCommandsRepo')
     }
 
-    get GUILD_ID(): string {
-        return this.fromEnvConfig('GUILD_ID')
-    }
-
     fromEnvConfig(key: string): string {
         const value = process.env[key]
         if(value !== undefined) return value

@@ -54,7 +54,7 @@ export class LiveTriggerManager {
             ) as LiveTrigger
             trigger.name = trigger.name ?? file.split('.')[0]
 
-            console.log(`Trigger: ${trigger.match}. Loaded from ${path.join(dir, file)}`)
+            console.log(`                 ${trigger.match}    ${path.join(dir, file)}`)
             this.loadedTriggers.push(trigger)
         }
 

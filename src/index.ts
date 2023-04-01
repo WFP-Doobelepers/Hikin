@@ -245,9 +245,11 @@ class DiscordBotHandler {
 
         await this.loadActivity()
 
+        console.log('Loading Triggers: Trigger                             Location')
+
         this.liveTriggerManager.loadTriggers()
 
-         this.registerPublicCommands([
+        this.registerPublicCommands([
             ...this.liveCommandManager.getLiveCommands(),
             ...await this.localCommandManager.getLocalPublicCommands()
         ])
@@ -335,8 +337,8 @@ class DiscordBotHandler {
         await this.restClient.put(Routes.applicationCommands(Constants.DISCORD_CLIENT_ID), { body: Object.values(hashSet) })
     }
 
-    async registerPrivateCommands(commands: RESTPatchAPIApplicationCommandJSONBody[]) {
-        const hashSet: Record<string, RESTPatchAPIApplicationCommandJSONBody> = {}
+    async registerPrivateCommands(commands: RESTPatchAPIApplicationGuildCommandJSONBody[]) {
+        const hashSet: Record<string, RESTPatchAPIApplicationGuildCommandJSONBody> = {}
 
         console.log(`Registering Public Commands:   Name   (Autocomplete)`)
         for (const command of commands) {
