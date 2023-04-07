@@ -35,22 +35,20 @@ export default class Eval implements Command {
 
         let executionTime = Date.now()
 
-        //async () => {
+        try {
 
-            try {
+            const result = await eval(`async () => ${evaluationCode}`)()
 
-                const result = await eval(evaluationCode)
+            response = result
+            executionSuccess = true
 
-                response = result
-                executionSuccess = true
+            executionTime = (executionTime - Date.now())
 
-                executionTime = (executionTime - Date.now())
+        } catch (err: any) {
 
-            } catch (err: any) {
-
-                response = err.stack
-            }
-       // }
+            response = err.stack
+        }
+       
 
         let embed = new MessageEmbed()
                         .addField('Evaluated Code', `\`\`\`js\n${evaluationCode}\n\`\`\``)
