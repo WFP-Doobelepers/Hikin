@@ -128,6 +128,20 @@ export class LiveTriggerManager {
                 }
             }
 
+            // is pretc check. To be implemented better
+
+            if ((<string> trigger.interaction)[0] === 'p') {
+
+                const guildConfig = discordBot.databaseManager.getGuildConfigDocument(<string> message.guildId)
+
+                if (guildConfig.isPreTCAllowed !== 'true') {
+
+                    await message.reply('**ERROR:** Pre-TC Resources blocked are blocked by default.\nContant server admin to allow them.')
+                    return
+                }
+            }
+            
+
             const primaryInteraction = discordBot.liveInteractionManager.resolveLiveInteraction(
                 trigger.interaction,
                 { ...constantsFromObject(message.member), ...matchConstants }
