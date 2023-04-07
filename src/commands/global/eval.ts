@@ -27,6 +27,8 @@ export default class Eval implements Command {
             return
         }
 
+        const bot = discordBot
+
         const evaluationCode = interaction.options.getString('code') as string
 
         let response;
