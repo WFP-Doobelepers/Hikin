@@ -37,7 +37,7 @@ export default class Eval implements Command {
 
         try {
 
-            const result = eval(`(async () => {\n${evaluationCode}\n})`)()
+            const result = await eval(`(async () => {\n${evaluationCode}\n})`)()
 
             response = result
             executionSuccess = true
