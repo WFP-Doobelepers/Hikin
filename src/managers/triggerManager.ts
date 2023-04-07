@@ -69,7 +69,7 @@ export class LiveTriggerManager {
             return await this._parseMessage(message)
         } catch (error) {
             console.log(error)
-            message.reply('An error occurred while trying to parse the LiveInteraction. Please contanct WFP if this is a bug.')
+            message.reply('An error occurred while trying to parse the LiveInteraction. Please contanct [WFP](https://discord.gg/hutao) if you feel this is a bug.')
         }
     }
 
