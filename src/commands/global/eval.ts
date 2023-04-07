@@ -4,6 +4,7 @@ import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types'
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { Constants } from '../../constants'
 import { discordBot } from '../..'
+import { i } from 'mathjs'
 
 export default class Eval implements Command {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {
@@ -27,8 +28,6 @@ export default class Eval implements Command {
             return
         }
 
-        const bot = discordBot
-
         const evaluationCode = interaction.options.getString('code') as string
 
         let response;
@@ -36,20 +35,22 @@ export default class Eval implements Command {
 
         let executionTime = Date.now()
 
-        try {
+        //async () => {
 
-            const result = eval(evaluationCode)
+            try {
 
-            response = result
-            executionSuccess = true
+                const result = await eval(evaluationCode)
 
-            executionTime = (executionTime - Date.now())
+                response = result
+                executionSuccess = true
 
-        } catch (err: any) {
+                executionTime = (executionTime - Date.now())
 
-           response = err.stack
+            } catch (err: any) {
 
-        }
+                response = err.stack
+            }
+       // }
 
         let embed = new MessageEmbed()
                         .addField('Evaluated Code', `\`\`\`js\n${evaluationCode}\n\`\`\``)
