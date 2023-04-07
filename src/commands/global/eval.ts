@@ -30,8 +30,6 @@ export default class Eval implements Command {
 
         const evaluationCode = interaction.options.getString('code') as string
 
-        await interaction.channel?.send('hello') 
-
         let response;
         let executionSuccess: boolean = false
 
@@ -39,7 +37,7 @@ export default class Eval implements Command {
 
         try {
 
-            const result = eval(`(async () => await ${evaluationCode})`)()
+            const result = eval(evaluationCode)
 
             response = result
             executionSuccess = true
