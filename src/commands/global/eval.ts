@@ -37,12 +37,9 @@ export default class Eval implements Command {
 
         try {
 
-            let result
-
-            if (evaluationCode.startsWith('await')) result = eval(`(async () => ${evaluationCode})`)()
-            else result = eval(evaluationCode)
-
+            const result = eval(evaluationCode)
             response = result
+
             executionSuccess = true
 
             executionTime = (executionTime - Date.now())
