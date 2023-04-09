@@ -94,7 +94,7 @@ export default class LiveCommand implements Command, IAutocompletableCommand {
         )
 
         if (!liveInteraction) {
-            await interaction.editReply('**ERROR:** Unable to parse live interaction.\n' + liveCommand.interaction)
+            await interaction.editReply('**ERROR:** Unable to parse live interaction.\n' + liveCommand.interaction + '\nPlease contact bot admins in <#825544033749303318> in WFP if this issue persists.')
             return
         }
 
@@ -103,7 +103,7 @@ export default class LiveCommand implements Command, IAutocompletableCommand {
                 .replyToInteraction(interaction)
         } catch(error) {
             console.log(error)
-            await interaction.editReply('Unable to send live interaction\n**ERROR:** ' + error)
+            await interaction.editReply('Unable to send live interaction\n**ERROR:** ' + error + '\nPlease contact bot admins in <#825544033749303318> in WFP if this issue persists.')
         }
     }
 
