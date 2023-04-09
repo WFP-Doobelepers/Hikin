@@ -83,7 +83,7 @@ export default class LiveCommand implements Command, IAutocompletableCommand {
 
             if (guildConfig.isPreTCAllowed !== 'true') {
 
-                await interaction.editReply('**ERROR:** Pre-TC Resources blocked are blocked by default.\nContant server admin to allow them.')
+                await interaction.editReply('**ERROR:** Pre-TC Resources are blocked by default.\nContant server admins to enable them.')
                 return
             }
         }

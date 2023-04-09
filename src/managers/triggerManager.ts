@@ -69,7 +69,7 @@ export class LiveTriggerManager {
             return await this._parseMessage(message)
         } catch (error) {
             console.log(error)
-            message.reply('An error occurred while trying to parse the LiveInteraction. Please contanct [WFP](https://discord.gg/hutao) if you feel this is a bug.')
+            message.reply('An error occurred while trying to parse the LiveInteraction. Please contact WFP if you feel this is a bug.')
         }
     }
 
@@ -136,7 +136,7 @@ export class LiveTriggerManager {
 
                 if (guildConfig.isPreTCAllowed !== 'true') {
 
-                    await message.reply('**ERROR:** Pre-TC Resources blocked are blocked by default.\nContant server admin to allow them.')
+                    await message.reply('**ERROR:** Pre-TC Resources are blocked by default.\nContant server admins to enable them.')
                     return
                 }
             }
