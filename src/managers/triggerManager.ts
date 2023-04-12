@@ -130,7 +130,7 @@ export class LiveTriggerManager {
 
             // is pretc check. To be implemented better
 
-            if ((<string> trigger.interaction)[0] === 'p') {
+            if (discordBot.liveConstants.PRETC.includes(trigger.interaction)) {
 
                 const guildConfig = discordBot.databaseManager.getGuildConfigDocument(<string> message.guildId)
 

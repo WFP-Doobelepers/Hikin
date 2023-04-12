@@ -5,6 +5,7 @@ import { discordBot } from '../..'
 import { MessageLiveInteraction } from '../../models/MessageLiveInteraction'
 import { constantsFromObject, hasPermission, cleanString } from '../../utils'
 import { Command, IAutocompletableCommand } from '../global/command'
+import { string } from 'mathjs'
 
 export default class LiveCommand implements Command, IAutocompletableCommand {
     async handleAutocomplete(interaction: AutocompleteInteraction<CacheType>): Promise<void> {
@@ -77,12 +78,13 @@ export default class LiveCommand implements Command, IAutocompletableCommand {
 
         await interaction.deferReply({ ephemeral: liveCommand?.ephemeral })
         
-        if (liveCommand.interaction[0] === 'p') {
+
+        if (discordBot.liveConstants.PRETC.includes(liveCommand.interaction)) {
 
             const guildConfig = discordBot.databaseManager.getGuildConfigDocument(<string> interaction.guildId)
-
+    
             if (guildConfig.isPreTCAllowed !== 'true') {
-
+    
                 await interaction.editReply('**ERROR:** Pre-TC Resources are blocked by default.\nContant server admins to enable them.')
                 return
             }

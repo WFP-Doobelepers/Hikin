@@ -3,8 +3,6 @@ import { Command } from './command'
 import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types'
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { Constants } from '../../constants'
-import { discordBot } from '../..'
-import { i } from 'mathjs'
 
 export default class Eval implements Command {
     getCommandMetadata(): RESTPostAPIApplicationCommandsJSONBody {
